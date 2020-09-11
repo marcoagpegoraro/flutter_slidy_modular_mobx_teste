@@ -1,3 +1,4 @@
+import 'package:flutter_modular_teste/app/modules/mene/mene_module.dart';
 import 'package:flutter_modular_teste/app/modules/other/other_page.dart';
 
 import 'app_controller.dart';
@@ -16,6 +17,7 @@ class AppModule extends MainModule {
   List<ModularRouter> get routers => [
         ModularRouter(Modular.initialRoute, module: HomeModule()),
         ModularRouter('/other', child: (_, args) => OtherPage()),
+        ModularRouter('/mene', module: MeneModule()),
         // ModularRouter('/other/:text',
         //     child: (_, args) => OtherPage(text: args.params['text']))
       ];

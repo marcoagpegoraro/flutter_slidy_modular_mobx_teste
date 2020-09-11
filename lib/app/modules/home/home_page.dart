@@ -14,7 +14,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("App teste")),
+      appBar: AppBar(
+        title: TextField(
+          onChanged: (value) {
+            homeController.text = value;
+          },
+          decoration: InputDecoration(labelText: "um texto qualquer"),
+        ),
+      ),
       body: Observer(
         builder: (BuildContext context) {
           if (homeController.pokemons.error != null)
@@ -40,19 +47,11 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
-      // Center(
-      //   child: TextField(
-      //     onChanged: (value) {
-      //       homeController.text = value;
-      //     },
-      //     decoration: InputDecoration(labelText: "um texto qualquer"),
-      //   ),
-      // ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Modular.to.pushNamed("/other");
-          // Modular.to.pushNamed("/other/" + homeController.text);
+          // Modular.to.pushNamed("/other");
+          Modular.to.pushNamed("/mene/" + homeController.text);
         },
       ),
     );
